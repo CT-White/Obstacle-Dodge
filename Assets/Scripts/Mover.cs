@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] float xValue = 0f;
-    [SerializeField] float yValue = 0f;
-    [SerializeField] float zValue = 0f;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +11,10 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // String comes from Unity Input Manager in project settings
+        float xValue = Input.GetAxis("Horizontal");
+        float yValue = 0f;
+        float zValue = Input.GetAxis("Vertical");
         // Move the object by the specified values
         transform.Translate(xValue, yValue, zValue);
     }
